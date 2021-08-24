@@ -18,7 +18,7 @@ jobs:
           MY_NAME: "Mona"
       - name: Dump GitHub job.container
         env:
-          GITHUB_CONTEXT: ${{ toJSON(job.container) }}
+          GITHUB_CONTEXT: ${{ toJSON(github.job.container) }}
         run: echo "$GITHUB_CONTEXT"
       - name: Dump GitHub context
         env:
