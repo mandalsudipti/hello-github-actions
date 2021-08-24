@@ -16,6 +16,10 @@ jobs:
       - uses: ./action-a
         with:
           MY_NAME: "Mona"
+      - name: Dump GitHub job
+        env:
+          GITHUB_CONTEXT: ${{ toJSON(github.job) }}
+        run: echo "$GITHUB_CONTEXT"
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJSON(github) }}
