@@ -4,7 +4,14 @@ jobs:
   build:
     name: Hello world action
     runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        wait-time: [0,0,0,180,300,360]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
     steps:
+      - run: sleep ${{ matrix.wait-time }}
       - uses: actions/checkout@v1
       - uses: ./action-a
         with:
