@@ -45,3 +45,9 @@ jobs:
           MATRIX_CONTEXT: ${{ toJSON(matrix) }}
         run: echo "$MATRIX_CONTEXT"
 
+      - name : get job id 
+        run: curl \
+             -H "Accept: application/vnd.github.v3+json" \ 
+             -H 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+              https://api.github.com/repos/${{github.repository}}/actions/runs/${{github.run_id}}/jobs
+              
