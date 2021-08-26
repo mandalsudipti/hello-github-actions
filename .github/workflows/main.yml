@@ -55,4 +55,6 @@ jobs:
             curl --location -g --request GET 'https://api.github.com/repos/${{github.repository}}/actions/runs/${{github.run_id}}/jobs' \
             --header 'Authorization: Bearer ${{secrets.GITHUB_TOKEN}}' \
             --header 'Accept: application/vnd.github.v3+json' > at.json
-              
+       
+      - name : parsing json
+        run: jq '.total_count' at.json
