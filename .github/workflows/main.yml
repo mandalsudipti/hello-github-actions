@@ -47,7 +47,7 @@ jobs:
         
       - name: run playwright test
         run: |
-            docker run --rm --network host -v $(pwd):/work/ -w /work/ -it mcr.microsoft.com/playwright:v1.12.3-focal /bin/bash
+            docker run -t --rm --network host -v $(pwd):/work/ -w /work/ -it mcr.microsoft.com/playwright:v1.12.3-focal /bin/bash
             npm install
             npx playwright test --update-snapshots --config='playwright.config.js'
 
